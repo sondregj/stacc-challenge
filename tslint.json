@@ -1,0 +1,12 @@
+{
+	"rules": {
+		"interface-name": false,
+		"semicolon": false,
+		"object-literal-sort-keys": false,
+		"ordered-imports": false
+	},
+	"extends": [
+		"tslint:recommended",
+		"tslint-config-prettier"
+	]
+}
