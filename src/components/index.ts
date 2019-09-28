@@ -5,4 +5,5 @@ export { default as GraphLine } from './GraphLine'
 export { default as GraphLegend } from './GraphLegend'
 
 // Other
+export { default as Currency } from './Currency'
 export { default as InfoPoint } from './InfoPoint'
