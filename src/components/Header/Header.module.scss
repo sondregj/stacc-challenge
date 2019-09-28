@@ -1,0 +1,20 @@
+.header {
+    color: white;
+    margin: 0 0 24px 0;
+
+    min-height: 150px;
+
+    > div.topSection {
+        background-color: rgb(135, 42, 34);
+
+        > div {
+            max-width: 860px;
+            padding: 48px 24px 6px 24px;
+            margin: 0 auto;
+
+            > h1 {
+                font-size: 3rem;
+            }
+        }
+    }
+}
