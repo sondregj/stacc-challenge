@@ -1,0 +1,17 @@
+div.infoPoint {
+    margin: 0 -6px;
+
+    display: flex;
+
+    > div {
+        margin: 0 6px;
+    }
+
+    > div.label {
+        font-weight: bold;
+    }
+
+    > div.value {
+        font-family: 'Courier New', Courier, monospace;
+    }
+}
