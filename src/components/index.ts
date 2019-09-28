@@ -1,3 +1,7 @@
+// Top lever components
+export { default as Header } from './Header'
+export { default as Footer } from './Footer'
+
 // Graph
 export { default as Graph } from './Graph'
 export { default as GraphBar } from './GraphBar'
