@@ -1,0 +1,26 @@
+div.container {
+    display: flex;
+
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    > div.graphLegendItem {
+        display: flex;
+        flex-direction: row;
+
+        margin: 0 -6px;
+
+        > * {
+            margin: 0 6px;
+        }
+
+        > div.graphLegendLabel {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        > div.graphLegendColor {
+            width: 16px;
+            height: 16px;
+        }
+    }
+}
