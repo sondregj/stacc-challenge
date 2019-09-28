@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
 
 import App from './App'
 
 import './index.scss'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+    <StrictMode>
+        <App />
+    </StrictMode>,
+    document.getElementById('root'),
+)
