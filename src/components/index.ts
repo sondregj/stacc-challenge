@@ -2,6 +2,10 @@
 export { default as Header } from './Header'
 export { default as Footer } from './Footer'
 
+// Inputs
+export { default as Button } from './Button'
+export { default as RangeSlider } from './RangeSlider'
+
 // Graph
 export { default as Graph } from './Graph'
 export { default as GraphBar } from './GraphBar'
