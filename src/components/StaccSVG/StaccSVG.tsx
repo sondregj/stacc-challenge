@@ -23,8 +23,8 @@ const StaccSVG = () => (
                 y2="43.5"
                 gradientUnits="userSpaceOnUse"
             >
-                <stop stop-color="#872A22"></stop>
-                <stop offset="1" stop-color="#872A22" stop-opacity="0"></stop>
+                <stop stopColor="#872A22"></stop>
+                <stop offset="1" stopColor="#872A22" stopOpacity="0"></stop>
             </linearGradient>
         </defs>
     </svg>
