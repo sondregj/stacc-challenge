@@ -1,0 +1,82 @@
+footer.container {
+    margin: 48px 0;
+
+    color: #fff;
+    text-align: center;
+
+    .links {
+        margin: 2em 0;
+        display: flex;
+        justify-content: center;
+
+        .link {
+            color: #888;
+
+            -moz-transition: all 0.2s ease-in;
+            -o-transition: all 0.2s ease-in;
+            -webkit-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+
+            > * {
+                display: block;
+                padding: 0px 10px;
+            }
+
+            &:visited {
+                color: #888;
+            }
+
+            &:hover {
+                color: #e99;
+            }
+
+            &.github:hover {
+                color: #6e5494;
+            }
+
+            &.twitter:hover {
+                color: #1da1f2;
+            }
+
+            &.facebook:hover {
+                color: #3b5998;
+            }
+
+            &.codepen:hover {
+                color: #0ebeff;
+            }
+
+            &.website:hover {
+                color: #e99;
+            }
+        }
+    }
+
+    .copyright {
+        font-family: monospace;
+        font-size: 0.9em;
+        text-align: center;
+        color: #888;
+        margin: 50px 0px;
+        text-decoration: none;
+
+        cursor: default;
+
+        -moz-transition: all 0.2s ease-in;
+        -o-transition: all 0.2s ease-in;
+        -webkit-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+
+        &:hover {
+            color: rgb(256, 128, 128);
+        }
+    }
+}
+
+body.light-mode .socialLinks {
+    color: #888;
+}
+
+body.dark-mode .socialLinks {
+    color: #888;
+}
