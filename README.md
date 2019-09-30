@@ -12,7 +12,7 @@ Kjøring krever Node.js og NPM. Etter å ha klonet repoet kjører du følgende i
 
 ## Frontend
 
-Webapplikasjonen er laget med React og TypeScript. Applikasjonen består av to hovedseksjoner, en for parametervalg og en for visining av resultatet.
+Webapplikasjonen er laget med React og TypeScript. Applikasjonen består av to hovedseksjoner, en for parametervalg og en for visning av resultatet.
 
 Man kan velge mellom å bruke API-endepunktet til Stacc eller en intern kalkuleringsfunksjon for beregningene (dette er mest for demonstrasjon).
 
