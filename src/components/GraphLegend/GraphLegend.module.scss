@@ -4,7 +4,7 @@ div.container {
     flex-direction: row;
     justify-content: space-evenly;
 
-    > div.graphLegendItem {
+    > div.legendItem {
         display: flex;
         flex-direction: row;
 
@@ -14,11 +14,11 @@ div.container {
             margin: 0 6px;
         }
 
-        > div.graphLegendLabel {
+        > div.label {
             font-family: 'Courier New', Courier, monospace;
         }
 
-        > div.graphLegendColor {
+        > div.colorBox {
             width: 16px;
             height: 16px;
         }

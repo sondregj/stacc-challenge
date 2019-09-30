@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './GraphLegend.module.scss'
+import css from './GraphLegend.module.scss'
 
 interface GraphLegendProps {
     items: Array<{
@@ -9,20 +9,18 @@ interface GraphLegendProps {
     }>
 }
 
-const GraphLegend: React.FC<GraphLegendProps> = ({ items }) => {
-    return (
-        <div className={styles.container}>
-            {items.map(item => (
-                <div className={styles.graphLegendItem}>
-                    <div
-                        className={styles.graphLegendColor}
-                        style={{ backgroundColor: item.color }}
-                    ></div>
-                    <div className={styles.graphLegendLabel}>{item.label}</div>
-                </div>
-            ))}
-        </div>
-    )
-}
+const GraphLegend: React.FC<GraphLegendProps> = ({ items }) => (
+    <div className={css.container}>
+        {items.map((item, i) => (
+            <div key={i} className={css.legendItem}>
+                <div
+                    className={css.colorBox}
+                    style={{ backgroundColor: item.color }}
+                ></div>
+                <div className={css.label}>{item.label}</div>
+            </div>
+        ))}
+    </div>
+)
 
 export default GraphLegend

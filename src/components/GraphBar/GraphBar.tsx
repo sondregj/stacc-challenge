@@ -1,22 +1,25 @@
 import React from 'react'
 
-import styles from './GraphBar.module.scss'
+import css from './GraphBar.module.scss'
 
 interface GraphBarProps {
     values: number[]
     color: string
+    max: number
 }
 
-const GraphBar: React.FC<GraphBarProps> = ({ values, color }) => {
-    const max = values.reduce((max, value) => (value > max ? value : max))
+const GraphBar: React.FC<GraphBarProps> = ({ values, color, max }) => {
+    const maxValue =
+        max || values.reduce((max, value) => (value > max ? value : max), 0)
 
     return (
-        <div className={styles.graphBar}>
-            {values.map(value => (
+        <div className={css.container}>
+            {values.map((value, i) => (
                 <div
-                    className={styles.bar}
+                    key={i}
+                    className={css.bar}
                     style={{
-                        height: (value / max) * 100 + '%',
+                        height: (value / maxValue) * 100 + '%',
                         opacity: 0.9,
                         backgroundColor: color,
                     }}

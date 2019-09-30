@@ -1,22 +1,25 @@
 import React from 'react'
 
-import styles from './GraphLine.module.scss'
+import css from './GraphLine.module.scss'
 
 interface GraphLineProps {
     values: number[]
     color: string
+    max: number
 }
 
-const GraphLine: React.FC<GraphLineProps> = ({ values, color }) => {
-    const max = values.reduce((max, value) => (value > max ? value : max))
+const GraphLine: React.FC<GraphLineProps> = ({ values, color, max }) => {
+    const maxValue =
+        max || values.reduce((max, value) => (value > max ? value : max), 0)
 
     return (
-        <div className={styles.graphLine}>
-            {values.map(value => (
+        <div className={css.container}>
+            {values.map((value, i) => (
                 <div
-                    className={styles.line}
+                    key={i}
+                    className={css.line}
                     style={{
-                        height: (value / max) * 100 + '%',
+                        height: (value / maxValue) * 100 + '%',
                         // opacity: 1,
                         borderColor: color,
                     }}
