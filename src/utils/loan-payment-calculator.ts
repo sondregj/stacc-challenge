@@ -36,23 +36,22 @@ export const calculateLoanPayments = (data: DataRequest): DataResponse => {
     const monthlyInterest = interest / 100 / 12
     const terms = months
 
-    const payments: Payment[] = serialLoan(loanAmount, terms, monthlyInterest, fee).map(
-        (loanPayment, i) => ({
-            innbetaling: loanPayment.deductionAmount,
-            renter: loanPayment.interestAmount,
-            gebyr: loanPayment.fee,
-            total: loanPayment.totalAmount,
+    const payments: Payment[] = annuityLoan(
+        loanAmount,
+        terms,
+        monthlyInterest,
+        fee,
+    ).map((loanPayment, i) => ({
+        innbetaling: loanPayment.deductionAmount,
+        renter: loanPayment.interestAmount,
+        gebyr: loanPayment.fee,
+        total: loanPayment.totalAmount,
 
-            restgjeld: loanPayment.remainingDebt,
-            dato: new Date(
-                dateOfLoanReceived.getFullYear() + Math.floor(i / 12),
-                i % 12,
-                0,
-            )
-                .toISOString()
-                .substring(0, 10), // '2044-12-01',
-        }),
-    )
+        restgjeld: loanPayment.remainingDebt,
+        dato: new Date(dateOfLoanReceived.getFullYear() + Math.floor(i / 12), i % 12, 0)
+            .toISOString()
+            .substring(0, 10), // '2044-12-01',
+    }))
 
     return {
         aarligGruppertInnbetalinger: null,
@@ -63,8 +62,8 @@ export const calculateLoanPayments = (data: DataRequest): DataResponse => {
 }
 
 const annuityLoan: LoanCalculator = (loanAmount, terms, termInterest, termFee) => {
-    const totalOwed: number = loanAmount * Math.pow(1 + termInterest, terms)
-    const termAmount: number = totalOwed / terms
+    const totalOwed: number = loanAmount * Math.pow(1 + termInterest, terms - 1)
+    const termAmount: number = totalOwed / (terms - 1)
 
     const payments: LoanPayment[] = [
         {
@@ -105,7 +104,7 @@ const annuityLoan: LoanCalculator = (loanAmount, terms, termInterest, termFee) =
 }
 
 const serialLoan: LoanCalculator = (loanAmount, terms, termInterest, termFee) => {
-    const deductionAmount = loanAmount / terms
+    const deductionAmount = loanAmount / (terms - 1)
 
     const payments: LoanPayment[] = [
         {

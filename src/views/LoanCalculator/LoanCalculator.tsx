@@ -8,7 +8,7 @@ import {
     LoanData,
 } from '../../components'
 
-import { sampleResponse } from '../../data/sample'
+//import { sampleResponse } from '../../data/sample'
 import { DataResponse, DataRequest } from '../../data/types'
 
 import { calculateLoanPayments } from '../../utils/loan-payment-calculator'
@@ -32,7 +32,7 @@ const LoanCalculatorView = () => {
     const [useOnlineService, setUseOnlineService] = useState<boolean>(true)
 
     // Data view state
-    const [data, setData] = useState<DataResponse>(sampleResponse)
+    const [data, setData] = useState<DataResponse>()
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [loadingError, setLoadingError] = useState<Error>()
     const [dataFetchedOnline, setDataFetchedOnline] = useState<boolean>(true)
@@ -55,7 +55,7 @@ const LoanCalculatorView = () => {
             nominellRente: interest,
             terminGebyr: fee,
 
-            saldoDato: fromYear.toISOString().substring(0, 10), //'2020-01-01',
+            saldoDato: fromYear.toISOString().substring(0, 10),
             datoForsteInnbetaling: firstPaymentDate,
             utlopsDato: toYear.toISOString().substring(0, 10),
 
@@ -91,6 +91,11 @@ const LoanCalculatorView = () => {
 
         return () => (cancelled = true)
     }
+
+    useEffect(() => {
+        getCalculationsOnline()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     useEffect(() => {
         if (!useOnlineService) {
