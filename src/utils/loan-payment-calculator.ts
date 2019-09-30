@@ -1,3 +1,5 @@
+import { DataRequest, DataResponse, Payment } from '../data/types'
+
 interface LoanPayment {
     interestAmount: number
     deductionAmount: number
@@ -14,6 +16,51 @@ type LoanCalculator = (
     termInterest: number,
     termFee: number,
 ) => LoanPayment[]
+
+export const calculateLoanPayments = (data: DataRequest): DataResponse => {
+    const loanAmount = data.laanebelop
+    const interest = data.nominellRente
+    const fee = data.terminGebyr
+
+    const dateOfLoanReceived = new Date(data.saldoDato)
+    const dateOfFirstPayment = new Date(data.datoForsteInnbetaling)
+    const dateOfLastPayment = new Date(data.utlopsDato)
+
+    const ಠ_ಠ = data.ukjentVerdi
+
+    // Intermediate calculations
+    const years = dateOfLastPayment.getFullYear() - dateOfLoanReceived.getFullYear()
+    const months =
+        dateOfLastPayment.getMonth() - dateOfLoanReceived.getMonth() + 1 + years * 12
+
+    const monthlyInterest = interest / 100 / 12
+    const terms = months
+
+    const payments: Payment[] = serialLoan(loanAmount, terms, monthlyInterest, fee).map(
+        (loanPayment, i) => ({
+            innbetaling: loanPayment.deductionAmount,
+            renter: loanPayment.interestAmount,
+            gebyr: loanPayment.fee,
+            total: loanPayment.totalAmount,
+
+            restgjeld: loanPayment.remainingDebt,
+            dato: new Date(
+                dateOfLoanReceived.getFullYear() + Math.floor(i / 12),
+                i % 12,
+                0,
+            )
+                .toISOString()
+                .substring(0, 10), // '2044-12-01',
+        }),
+    )
+
+    return {
+        aarligGruppertInnbetalinger: null,
+        metadata: null,
+        valideringsfeilmeldinger: null,
+        nedbetalingsplan: { innbetalinger: payments },
+    }
+}
 
 const annuityLoan: LoanCalculator = (loanAmount, terms, termInterest, termFee) => {
     const totalOwed: number = loanAmount * Math.pow(1 + termInterest, terms)
