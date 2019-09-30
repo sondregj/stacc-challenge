@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './RangeSlider.module.scss'
+import css from './RangeSlider.module.scss'
 
 interface RangeSliderProps {
     value: number
@@ -19,7 +19,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
 }) => {
     return (
         <input
-            className={styles.rangeSlider}
+            className={css.rangeSlider}
             type="range"
             placeholder="Size"
             value={value}

@@ -2,11 +2,11 @@ import React from 'react'
 
 import { StaccSVG } from '..'
 
-import styles from './Header.module.scss'
+import css from './Header.module.scss'
 
 const Header = () => (
-    <header className={styles.header}>
-        <div className={styles.topSection}>
+    <header className={css.container}>
+        <div className={css.topSection}>
             <div>
                 <h1>Kodeoppgave for Stacc</h1>
                 <p>Av Sondre Gjellestad</p>
