@@ -23,10 +23,10 @@ export const calculateLoanPayments = (data: DataRequest): DataResponse => {
     const fee = data.terminGebyr
 
     const dateOfLoanReceived = new Date(data.saldoDato)
-    const dateOfFirstPayment = new Date(data.datoForsteInnbetaling)
+    // const dateOfFirstPayment = new Date(data.datoForsteInnbetaling)
     const dateOfLastPayment = new Date(data.utlopsDato)
 
-    const ಠ_ಠ = data.ukjentVerdi
+    // const ಠ_ಠ = data.ukjentVerdi
 
     // Intermediate calculations
     const years = dateOfLastPayment.getFullYear() - dateOfLoanReceived.getFullYear()
@@ -61,7 +61,12 @@ export const calculateLoanPayments = (data: DataRequest): DataResponse => {
     }
 }
 
-const annuityLoan: LoanCalculator = (loanAmount, terms, termInterest, termFee) => {
+export const annuityLoan: LoanCalculator = (
+    loanAmount,
+    terms,
+    termInterest,
+    termFee,
+) => {
     const totalOwed: number = loanAmount * Math.pow(1 + termInterest, terms - 1)
     const termAmount: number = totalOwed / (terms - 1)
 
@@ -103,7 +108,12 @@ const annuityLoan: LoanCalculator = (loanAmount, terms, termInterest, termFee) =
     return payments
 }
 
-const serialLoan: LoanCalculator = (loanAmount, terms, termInterest, termFee) => {
+export const serialLoan: LoanCalculator = (
+    loanAmount,
+    terms,
+    termInterest,
+    termFee,
+) => {
     const deductionAmount = loanAmount / (terms - 1)
 
     const payments: LoanPayment[] = [
