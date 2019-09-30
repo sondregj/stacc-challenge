@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Header, Footer } from './components'
+import { LoanCalculator } from './views'
 
 import css from './App.module.scss'
 
@@ -9,6 +10,7 @@ const App = () => (
         <Header />
 
         <main className={css.content}>
+            <LoanCalculator />
         </main>
 
         <Footer />
