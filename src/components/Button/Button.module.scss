@@ -1,19 +1,22 @@
-div.button {
+div.container {
     padding: 12px;
-    background-color: black;
-    border: 2px solid black;
+
     color: white;
+    background-color: black;
 
     font-weight: bold;
-}
-
-div.button:hover {
     border: 2px solid black;
-    background-color: white;
-    color: black;
-    cursor: pointer;
-}
 
-div.button.disabled {
-    background-color: grey;
+    &.disabled {
+        background-color: grey;
+    }
+
+    &:hover {
+        color: black;
+        background-color: white;
+
+        border: 2px solid black;
+
+        cursor: pointer;
+    }
 }

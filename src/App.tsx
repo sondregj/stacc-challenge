@@ -2,13 +2,13 @@ import React from 'react'
 
 import { Header, Footer } from './components'
 
-import styles from './App.module.scss'
+import css from './App.module.scss'
 
 const App = () => (
-    <div className={styles.app}>
+    <div className={css.app}>
         <Header />
 
-        <main className={styles.content}>
+        <main className={css.content}>
         </main>
 
         <Footer />

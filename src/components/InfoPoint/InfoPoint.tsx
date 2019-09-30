@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './InfoPoint.module.scss'
+import css from './InfoPoint.module.scss'
 
 interface InfoPointProps {
     label: string
@@ -8,9 +8,9 @@ interface InfoPointProps {
 }
 
 const InfoPoint: React.FC<InfoPointProps> = ({ label, value }) => (
-    <div className={styles.infoPoint}>
-        <div className={styles.label}>{label}</div>
-        <div className={styles.value}>{value}</div>
+    <div className={css.container}>
+        <div className={css.label}>{label}</div>
+        <div className={css.value}>{value}</div>
     </div>
 )
 
