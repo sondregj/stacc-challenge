@@ -5,6 +5,8 @@ export { default as Footer } from './Footer'
 // Inputs
 export { default as Button } from './Button'
 export { default as RangeSlider } from './RangeSlider'
+export { default as DatePicker } from './DatePicker'
+export { default as TextInput } from './TextInput'
 
 // Data Views
 export { default as LoanData } from './LoanData'
