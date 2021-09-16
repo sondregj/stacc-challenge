@@ -3,17 +3,17 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
-		"@types/jest": "24.0.18",
-		"@types/node": "12.7.8",
-		"@types/react": "16.9.3",
-		"@types/react-dom": "16.9.1",
-		"feather-icons-react": "^0.3.2",
-		"node-sass": "^4.12.0",
-		"react": "^16.10.1",
-		"react-dom": "^16.10.1",
-		"react-scripts": "3.1.2",
+		"@types/jest": "27.0.1",
+		"@types/node": "16.9.2",
+		"@types/react": "17.0.21",
+		"@types/react-dom": "17.0.9",
+		"feather-icons-react": "^0.4.3",
+		"node-sass": "^6.0.1",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-scripts": "^4.0.3",
 		"tslint-config-prettier": "^1.18.0",
-		"typescript": "3.6.3"
+		"typescript": "4.4.3"
 	},
 	"scripts": {
 		"start": "react-scripts start",
