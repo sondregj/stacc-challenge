@@ -8,7 +8,7 @@
 		"@types/react": "17.0.21",
 		"@types/react-dom": "17.0.9",
 		"feather-icons-react": "^0.4.3",
-		"node-sass": "^6.0.1",
+		"node-sass": "^7.0.0",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-scripts": "^4.0.3",
